@@ -1,8 +1,9 @@
-;; canadian-holidays.el - Canadian holidays for Emacs calendar
+;;; canadian-holidays.el --- Canadian holidays for Emacs calendar
 
 ;; Author: Darshan Soni <darshan.dsoni@gmail.com>
+;; Package-Requires: ((emacs "25.0"))
 ;; URL: https://github.com/darshandsoni/canadian-holidays
-
+;; Keywords: calendar, local
 ;; Licence: GPL3.0
 
 ;; FIXME: bring into line with https://www.gnu.org/software/emacs/manual/html_node/elisp/Simple-Packages.html
@@ -151,3 +152,5 @@ cf. also the province/territory specific holidays in each of:
 ;; a two-letter province/territory code or a list of such codes which
 ;; adds all those holidays to the calendar, to save users from having
 ;; to perform a bunch of list manipulation in their init file.
+
+(provide 'canadian-holidays)
