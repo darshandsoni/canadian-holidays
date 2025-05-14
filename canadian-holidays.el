@@ -10,28 +10,29 @@
   (require 'holidays))
 
 (defvar holiday-canadian--federal-holidays
-  '((holiday-fixed 1 1 "New Years Day")
-    (holiday-fixed 7 1 "Canada Day")
-    (holiday-fixed 25 12 "Christmas Day")
+  '((holiday-fixed  1  1   "New Years Day")
+    (holiday-fixed  9 30   "National Day for Truth and Reconciliation")
+    (holiday-fixed 25 12   "Christmas Day")
     ;; Variable dates
-    (holiday-easter-etc -1 "Good Friday")
-    (holiday-float 9 1 1 "Labour Day"))
-  "Federal holidays observed nationwide.")
+    (holiday-float  9  1 1 "Labour Day"))
+  "Canadian federal holidays observed nationwide.
 
-(defvar holiday-canadian--holiday-alist
-  '((family-bc-nb (holiday-float 2 1 2 "Family Day"))
-    (louis-riel (holiday-float 2 1 3 "Louis Riel Day"))
-    (islander (holiday-float 2 1 3 "Islander Day"))
-    (heritage (holiday-float 2 1 3 "Heritage Day"))
-    (st-patrick (holiday-fixed 3 17 "St Patricks Day"))
-    (easter-monday (holiday-easter-etc 1 "Easter Monday"))
-    (st-george (holiday-fixed 4 23 "St Georges Day"))
-    ;; (victoria and patriots (holiday-float TO ADD
-    (aboriginal (holiday-fixed 6 21 "National Aboriginal Day"))
-    (discovery (holiday-fixed 6 24 "Discovery Day / National Holiday"))
-    (canada (holiday-fixed 7 1 "Canada Day"))
-    (orangemen (holiday-fixed 7 12 "Orangemens Day" ))
-    (civic (holiday-float 8 1 1 "Civic Holiday"))
-    (heritage (holiday-float 8 1 1 "Heritage Day"))
-    ;; (
-    ;; TO BE CONTINUED
+Holidays are expressed with the syntax described by the documentation for
+`calendar-holidays', and can be made to appear in the emacs calendar by
+adding this list to `holiday-local-holidays' or `holiday-other-holidays'.
+
+If the goal is to make these holidays appear in your org-mode agenda view
+please consult the documentation for `org-agenda-include-diary' (it should
+be set to `t') and also the Info node `(org)Weekly/daily agenda'.
+
+(NB. if you try to use the %%(org-calendar-holiday) form in an org-mode
+file to display holidays with the performance bump it promises, it seems
+that some `holiday-float' entries like Victoria Day will not appear, for
+reasons I do not currently understand.)
+
+")
+
+;; https://www.canada.ca/en/revenue-agency/services/tax/public-holidays.html
+;; https://canada-holidays.ca
+;; https://www.timeanddate.com/holidays/canada/
+;; https://www.statutoryholidays.com
