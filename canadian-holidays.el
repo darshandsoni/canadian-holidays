@@ -5,6 +5,8 @@
 
 ;; Licence: GPL3.0
 
+;; FIXME: bring into line with https://www.gnu.org/software/emacs/manual/html_node/elisp/Simple-Packages.html
+
 (eval-when-compile
   (require 'calendar)
   (require 'holidays))
@@ -51,6 +53,16 @@ cf. also the province/territory specific holidays in each of:
 ;; https://canada-holidays.ca
 ;; https://www.timeanddate.com/holidays/canada/
 ;; https://www.statutoryholidays.com
+
+;; FIXME: add primary sources into the package header block.
+
+;; FIXME: add links to primary sources for when each holiday was first
+;;   declared to be in force.
+
+;; FIXME: add links in each of the provincial docstrings below back to
+;;   holiday-canadian--federal-holidays so they all point back to the
+;;   main source of info, without duplicating a long string everywhere
+;;   in the source text.
 
 (defvar holiday-canadian--bc
   '()
@@ -130,3 +142,12 @@ cf. also the province/territory specific holidays in each of:
    ((bc ab sk __ on __ __ nb __ __ __ nu) (holiday-float  8  1  1 "Civic Holiday"))
    ((bc ab sk mb on qc __ __ __ __ nt nu) (holiday-float 10  1  2 "Canadian Thanksgiving"))
    ((bc ab sk mb __ __ __ nb __ pe nt nu) (holiday-fixed 11 11    "Remembrance Day"))))
+;; FIXME: there has to be a more idiomatic, less stringy way of
+;; expressing this kind of table processing.  In particular I would
+;; like to get rid of seq-do because I think that makes this very
+;; simple code require emacs 25 or later, which seems unnecessary.
+
+;; FIXME: also add a single customizable variable which can either be
+;; a two-letter province/territory code or a list of such codes which
+;; adds all those holidays to the calendar, to save users from having
+;; to perform a bunch of list manipulation in their init file.
