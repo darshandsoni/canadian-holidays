@@ -93,9 +93,25 @@ cf. also the province/territory specific holidays in each of:
 (defvar holiday-canadian--nl
   '((holiday-fixed  3 17 "St. Patrick's Day")
     (holiday-fixed  4 23 "St. George's Day")
-    (holiday-fixed  6 24 "Discovery Day"))
-  ;; FIXME: Orangemen's Day: what is the precise date specification?
-  ;; The best I can find now is "the Monday closest to July 12".
+    (holiday-fixed  6 24 "Discovery Day")
+    (holiday-float  7  1 -1 "Orangemen's Day" 15)
+    ;; Observance of Orangemen's Day is specified as "the Monday
+    ;; closest to July 16", which is a bit difficult to express with
+    ;; the holiday-float function (e.g. in 2029, July 16 falls on a
+    ;; Monday, but the holiday will be observed on 2029-07-09, the
+    ;; Monday prior).  I have specified the first Monday in July prior
+    ;; to the 15th, which maps out to "the closest to" in all seven
+    ;; day-of-the-week cases that I plotted out.
+    ;;
+    ;; It's worth noting that while Orangemen's Day in Newfoundland
+    ;; and Labrador is designated as a paid holiday, per
+    ;; https://www.gov.nl.ca/exec/tbs/policies/working-hours/holidays/2025-paid-holidays/
+    ;; as viewed on 2025-05-15, it is not classified as a shops-closed
+    ;; holiday, per
+    ;; https://www.gov.nl.ca/ecc/files/Shops-Closing-Holidays-2024-1.pdf
+    ;;
+    ;; Holiday?  Not a holiday?  I'm going to say "holiday".
+    )
   "Canadian statutory holidays observed in Newfoundland and Labrador.")
 
 (defvar holiday-canadian--nb
